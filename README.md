@@ -30,5 +30,9 @@ source .venv/bin/activate
 ### ノートブック用カーネルの準備
 
 ```bash
-uv run ipykernel install --user --name=book-azure-ai-foundry-sample
+uv run ipython kernel install --user --name=book-azure-ai-foundry-sample
 ```
+
+### 環境変数の設定
+
+.env_schema ファイルを参考に同じ階層に .env ファイルを作成し、Azure OpenAI Service のリソース名とAPIキーを設定してください。

@@ -1,0 +1,52 @@
+{
+    "ruff.path": [
+        "${workspaceFolder}/.venv/bin/ruff"
+    ],
+    "ruff.interpreter": [
+        "${workspaceFolder}/.venv/bin/python"
+    ],
+    "ruff.importStrategy": "fromEnvironment",
+    "ruff.enable": true,
+    "ruff.organizeImports": true,
+    "ruff.fixAll": true,
+    "ruff.codeAction.fixViolation": {
+        "enable": true
+    },
+    "ruff.codeAction.disableRuleComment": {
+        "enable": true
+    },
+    "ruff.trace.server": "off",
+    "python.analysis.autoImportCompletions": true, 
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "mypy-type-checker.interpreter": [
+        "${workspaceFolder}/.venv/bin/python"
+    ],
+    "mypy-type-checker.args": [
+        "--config-file=pyproject.toml"
+    ],
+    "cSpell.words": [
+        "AOAI",
+        "beautifulsoup",
+        "cognitiveservices",
+        "ipynb",
+        "lxml",
+        "matplotlib",
+        "mypy",
+        "pydantic",
+        "pyproject",
+        "pytest",
+    ],
+    "notebook.formatOnSave.enabled": true,
+    "notebook.codeActionsOnSave": {
+        "notebook.source.fixAll": "explicit",
+        "notebook.source.organizeImports": "explicit",
+    },
+}

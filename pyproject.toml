@@ -1,0 +1,17 @@
+[project]
+name = "book-azure-ai-foundry-sample"
+version = "0.1.0"
+description = "sample code for book of Azure AI Foundry"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=2.6.1"
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.1.0",
+    "python-dotenv>=1.2.1",
+    "ruff>=0.14.3",
+    "tqdm>=4.67.1",
+]

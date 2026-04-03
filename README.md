@@ -1,5 +1,6 @@
-# book-azure-ai-foundry-sample
-Azure AI Foundry書籍執筆用サンプルコード
+# Microsoft Foundry書籍サンプルコード
+
+技術書典19で頒布された「AIエージェント開発基盤 - Azure AI Foundry -」のサンプルコードをご利用の方は [shoten19](https://github.com/shohei1029/book-microsoft-foundry-sample/tree/shoten19) ブランチへアクセスをお願いします。
 
 ## 環境構築
 

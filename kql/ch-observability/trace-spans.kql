@@ -1,0 +1,7 @@
+let targetTraceId = '<TRACE_ID>';
+union requests, dependencies
+| where timestamp >= ago(7d)
+| where operation_Id == targetTraceId
+| project timestamp, itemType, name, id,
+    operation_ParentId, duration, resultCode, success
+| order by timestamp asc

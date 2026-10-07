@@ -1,0 +1,11 @@
+let targetTraceId = '<TRACE_ID>';
+dependencies
+| where timestamp >= ago(7d)
+| where operation_Id == targetTraceId
+| where name startswith 'chat '
+| project timestamp, name, id, operation_ParentId, duration,
+    inputTokens = tolong(
+        customDimensions['gen_ai.usage.input_tokens']),
+    outputTokens = tolong(
+        customDimensions['gen_ai.usage.output_tokens'])
+| order by timestamp asc

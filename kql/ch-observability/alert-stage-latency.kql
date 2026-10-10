@@ -1,0 +1,8 @@
+dependencies
+| where cloud_RoleName == 'onboarding-agent'
+| where name in (
+    'invoke_agent rag_agent',
+    'invoke_agent review_agent',
+    'invoke_agent finalize_agent')
+| where duration > 30000
+| project timestamp, name, operation_Id, duration

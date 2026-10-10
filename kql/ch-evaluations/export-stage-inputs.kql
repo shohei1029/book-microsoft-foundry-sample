@@ -1,0 +1,12 @@
+let targetTraceId = '<TRACE_ID>';
+dependencies
+| where operation_Id == targetTraceId
+| where name in (
+    'invoke_agent rag_agent',
+    'invoke_agent review_agent',
+    'invoke_agent finalize_agent')
+| project timestamp, name, operation_Id, id, operation_ParentId,
+    instructions = tostring(customDimensions['gen_ai.system_instructions']),
+    inputMessages = tostring(customDimensions['gen_ai.input.messages']),
+    outputMessages = tostring(customDimensions['gen_ai.output.messages'])
+| order by timestamp asc

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+requiredVersions:
+  extensions:
+    azure.ai.agents: '>=1.0.0-beta.4'
+name: onboarding-agent-v1
+services:
+  onboarding-agent-v1:
+    host: azure.ai.agent
+    kind: hosted
+    name: onboarding-agent-v1
+    description: 既存 Prompt Agent を Review と Finalize で拡張する v1
+    project: .
+    language: python
+    codeConfiguration:
+      runtime: python_3_13
+      entryPoint: src/main.py
+      dependencyResolution: remote_build
+    protocols:
+      - protocol: responses
+        version: 2.0.0
+    environmentVariables:
+      - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+        value: gpt-6-luna
+      - name: FOUNDRY_SEARCH_AGENT_NAME
+        value: onbording-search-agent
+      - name: FOUNDRY_SEARCH_AGENT_VERSION
+        value: '2'
+    container:
+      resources:
+        cpu: '0.5'
+        memory: 1Gi

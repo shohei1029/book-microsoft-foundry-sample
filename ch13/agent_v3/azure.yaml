@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+requiredVersions:
+  extensions:
+    azure.ai.agents: '>=1.0.0-beta.4'
+name: onboarding-agent-v3
+services:
+  onboarding-agent-v3:
+    host: azure.ai.agent
+    kind: hosted
+    name: onboarding-agent-v3
+    description: v2 の修正ループ後、仕上げだけに Foundry Memory を統合する v3
+    project: .
+    language: python
+    codeConfiguration:
+      runtime: python_3_13
+      entryPoint: src/main.py
+      dependencyResolution: remote_build
+    protocols:
+      - protocol: responses
+        version: 2.0.0
+    environmentVariables:
+      - name: AZURE_AI_MODEL_DEPLOYMENT_NAME
+        value: gpt-6-luna
+      - name: AZURE_SEARCH_ENDPOINT
+        value: https://srch-foundry-book.search.windows.net
+      - name: FOUNDRY_IQ_KNOWLEDGE_BASE_NAME
+        value: onboarding-knowledgebase
+      - name: FOUNDRY_IQ_KNOWLEDGE_SOURCE_NAME
+        value: onbording-knowledgesource
+      - name: FOUNDRY_MEMORY_STORE_NAME
+        value: onboarding-agent-memory-5-6-luna
+      - name: MAX_REVISIONS
+        value: '2'
+    container:
+      resources:
+        cpu: '0.5'
+        memory: 1Gi

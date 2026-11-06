@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1365" height="768" viewBox="0 0 1365 768">
+  <foreignObject width="1365" height="768">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+    :root {
+      --ink: #16212b;
+      --muted: #607080;
+      --line: #d7dde3;
+      --panel: #ffffff;
+      --canvas: #f4f7f8;
+      --nav: #182831;
+      --nav-active: #29414d;
+      --teal: #087f78;
+      --teal-soft: #e4f5f3;
+      --blue: #2563a6;
+      --blue-soft: #e9f1fb;
+      --green: #257a4b;
+      --green-soft: #e8f5ed;
+      --amber: #9a6500;
+      --amber-soft: #fff4d6;
+      --red: #a63535;
+      --red-soft: #fbeaea;
+      --coral: #c65b43;
+      font-family: "Noto Sans JP", "Yu Gothic UI", sans-serif;
+      color: var(--ink);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #cad2d8; }
+    .mockup {
+      position: relative;
+      width: 1365px;
+      height: 768px;
+      margin: 36px;
+      overflow: hidden;
+      background: var(--canvas);
+      box-shadow: 0 10px 28px rgb(21 34 43 / 18%);
+    }
+    .topbar {
+      height: 58px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 0 22px;
+      color: white;
+      background: var(--nav);
+    }
+    .brand { min-width: 182px; font-size: 20px; font-weight: 750; letter-spacing: 0; }
+    .environment { padding: 4px 9px; border: 1px solid #78afa9; color: #d9fffb; font-size: 12px; border-radius: 4px; }
+    .global-search { width: 400px; padding: 9px 12px; border: 1px solid #58717d; border-radius: 4px; color: #cfe0e7; background: #263b46; font-size: 13px; }
+    .top-spacer { flex: 1; }
+    .top-icon { color: #d7e2e7; font-size: 13px; }
+    .layout { display: grid; grid-template-columns: 210px 1fr; height: 710px; }
+    .sidebar { padding: 18px 12px; color: #dce6ea; background: #22343e; }
+    .side-title { margin: 3px 10px 13px; color: #8da4ae; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .side-item { margin: 3px 0; padding: 10px 12px; border-radius: 4px; font-size: 13px; }
+    .side-item.active { color: white; background: var(--nav-active); border-left: 3px solid #40b8ad; }
+    .main { overflow: hidden; padding: 22px 26px 28px; }
+    .breadcrumbs { margin-bottom: 7px; color: var(--muted); font-size: 12px; }
+    .page-title { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    h1 { margin: 0; font-size: 25px; line-height: 1.2; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 16px; letter-spacing: 0; }
+    .page-actions { margin-left: auto; display: flex; gap: 8px; }
+    button { padding: 8px 13px; border: 1px solid #b8c2c9; border-radius: 4px; color: var(--ink); background: white; font: inherit; font-size: 13px; }
+    button.primary { color: white; border-color: var(--teal); background: var(--teal); font-weight: 700; }
+    button.danger { color: var(--red); border-color: #d9aaaa; background: white; }
+    .card { padding: 18px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .field { min-width: 0; }
+    .field label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 700; }
+    .required::after { content: " *"; color: var(--red); }
+    .input, .textarea, .select {
+      min-height: 36px;
+      padding: 8px 10px;
+      border: 1px solid #b8c2c9;
+      border-radius: 4px;
+      color: #26333c;
+      background: white;
+      font-size: 13px;
+    }
+    .textarea { min-height: 62px; line-height: 1.45; }
+    .hint { margin-top: 5px; color: var(--muted); font-size: 11px; }
+    .status { display: inline-flex; align-items: center; gap: 5px; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+    .status.green { color: var(--green); background: var(--green-soft); }
+    .status.blue { color: var(--blue); background: var(--blue-soft); }
+    .status.amber { color: var(--amber); background: var(--amber-soft); }
+    .status.red { color: var(--red); background: var(--red-soft); }
+    .status.gray { color: #53616d; background: #edf0f2; }
+    .tabs { display: flex; gap: 22px; margin-bottom: 14px; padding: 0 3px; border-bottom: 1px solid var(--line); }
+    .tab { padding: 10px 0; color: var(--muted); font-size: 12px; }
+    .tab.active { color: var(--teal); border-bottom: 3px solid var(--teal); font-weight: 750; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { padding: 9px 10px; border-bottom: 1px solid var(--line); color: var(--muted); background: #f7f9fa; text-align: left; font-weight: 700; }
+    td { padding: 10px; border-bottom: 1px solid #e7ebee; vertical-align: middle; }
+    .metric { padding: 13px 14px; border-left: 3px solid var(--teal); background: white; }
+    .metric-label { color: var(--muted); font-size: 11px; }
+    .metric-value { margin-top: 4px; font-size: 22px; font-weight: 760; }
+    .callout {
+      position: absolute;
+      z-index: 5;
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 3px solid white;
+      border-radius: 50%;
+      color: white;
+      background: var(--coral);
+      box-shadow: 0 2px 6px rgb(20 30 35 / 35%);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .callout::after { content: ""; position: absolute; width: 32px; height: 2px; background: var(--coral); transform-origin: left center; }
+    .callout.right::after { left: 26px; transform: rotate(18deg); }
+    .callout.left::after { right: 26px; transform: rotate(162deg); }
+    .progress { height: 7px; overflow: hidden; border-radius: 4px; background: #e6ebee; }
+    .progress > span { display: block; height: 100%; background: var(--teal); }
+    .empty-line { height: 8px; border-radius: 3px; background: #e9edef; }
+    .toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .filter { padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; background: white; color: var(--muted); font-size: 12px; }
+    .mono { font-family: "Noto Sans Mono", monospace; }
+    .stepper { display: flex; align-items: center; gap: 0; margin-bottom: 18px; }
+    .step { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 11px; }
+    .step::before { content: ""; width: 10px; height: 10px; border: 2px solid #9eabb3; border-radius: 50%; background: white; }
+    .step.done { color: var(--green); }
+    .step.done::before { border-color: var(--green); background: var(--green); }
+    .step.active { color: var(--blue); font-weight: 700; }
+    .step.active::before { border-color: var(--blue); background: white; }
+    .step-line { width: 72px; height: 1px; margin: 0 9px; background: #c7d0d6; }
+    .kanban { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .kanban-col { min-height: 230px; padding: 10px; border: 1px solid var(--line); background: #f8fafb; }
+    .kanban-title { margin-bottom: 9px; color: var(--muted); font-size: 12px; font-weight: 700; }
+    .kanban-card { margin-bottom: 8px; padding: 10px; border: 1px solid var(--line); border-left: 3px solid var(--blue); border-radius: 4px; background: white; font-size: 11px; }
+    .canvas-layout { display: grid; grid-template-columns: 174px 1fr 240px; height: 570px; border: 1px solid var(--line); background: white; }
+    .node-palette, .properties { padding: 13px; background: #f7f9fa; }
+    .node-palette { border-right: 1px solid var(--line); }
+    .properties { border-left: 1px solid var(--line); }
+    .palette-item { margin-bottom: 7px; padding: 9px; border: 1px solid var(--line); border-radius: 4px; background: white; font-size: 11px; }
+    .flow-area { position: relative; overflow: hidden; background-color: #fbfcfc; background-image: radial-gradient(#cbd3d8 1px, transparent 1px); background-size: 18px 18px; }
+    .node { position: absolute; width: 136px; padding: 12px; border: 1px solid #91a4af; border-top: 4px solid var(--teal); border-radius: 5px; background: white; box-shadow: 0 3px 8px rgb(25 40 50 / 10%); font-size: 11px; }
+    .connector { position: absolute; height: 2px; background: #8196a2; transform-origin: left center; }
+    .chart { position: relative; height: 178px; border-left: 1px solid #c6d0d6; border-bottom: 1px solid #c6d0d6; background: repeating-linear-gradient(to top, transparent 0, transparent 43px, #edf0f2 44px); }
+    .chart svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  
+body{margin:0;background:transparent}.mockup{margin:0;box-shadow:none}</style>
+      <section class="mockup" data-mockup="studio-flow-canvas">
+    <header class="topbar"><div class="brand">Devagent Studio</div><div class="environment">DEVELOPMENT</div><div class="global-search">プロジェクト、テンプレート、コネクターを検索</div><div class="top-spacer"></div><div class="top-icon">保存済み</div><div class="top-icon">小林 葵</div></header>
+    <div class="layout"><aside class="sidebar"><div class="side-title">Build</div><div class="side-item active">Projects</div><div class="side-item">Templates</div><div class="side-item">Connectors</div><div class="side-item">Evaluations</div><div class="side-item">Deployments</div></aside>
+      <main class="main" style="padding-bottom:14px"><div class="breadcrumbs">Projects / 配送問い合わせ / Flow</div><div class="page-title" style="margin-bottom:12px"><h1>配送問い合わせ Agent</h1><span class="status gray">Draft v12</span><div class="page-actions"><button>テスト</button><button>評価</button><button class="primary">レビューを依頼</button></div></div>
+        <div class="canvas-layout"><div class="node-palette"><h2>ノード</h2><div class="palette-item">入力</div><div class="palette-item">プロンプト</div><div class="palette-item">モデル</div><div class="palette-item">ツール</div><div class="palette-item">条件分岐</div><div class="palette-item">人による承認</div><div class="palette-item">出力</div></div>
+          <div class="flow-area"><div class="node" style="left:30px;top:62px;border-top-color:var(--blue)"><strong>Input</strong><br/>customer_message</div><div class="connector" style="left:166px;top:93px;width:66px"></div><div class="node" style="left:232px;top:62px"><strong>Classify intent</strong><br/>Model: compact</div><div class="connector" style="left:368px;top:93px;width:68px"></div><div class="node" style="left:436px;top:62px;border-top-color:var(--amber)"><strong>Search FAQ</strong><br/>Tool: faq_search</div><div class="connector" style="left:504px;top:126px;width:2px;height:65px"></div><div class="node" style="left:436px;top:191px"><strong>Generate answer</strong><br/>Grounded response</div><div class="connector" style="left:504px;top:255px;width:2px;height:65px"></div><div class="node" style="left:436px;top:320px;border-top-color:var(--green)"><strong>Output</strong><br/>answer + citations</div><div style="position:absolute;left:24px;bottom:18px;right:24px;height:92px;padding:11px;border:1px solid var(--line);background:white"><strong style="font-size:11px">テスト入力</strong><div class="input" style="margin-top:7px">荷物の配達予定を確認したい</div></div></div>
+          <div class="properties"><h2>Search FAQ</h2><div class="field"><label>Connector</label><div class="select">FAQ Knowledge　⌄</div></div><div class="field" style="margin-top:12px"><label>Query</label><div class="input mono">{{ intent.query }}</div></div><div class="field" style="margin-top:12px"><label>Top K</label><div class="input">5</div></div><div class="field" style="margin-top:12px"><label>失敗時</label><div class="select">人へ引き継ぐ　⌄</div></div><button class="primary" style="margin-top:15px;width:100%">変更を適用</button></div></div>
+      </main></div>
+    <span class="callout right" style="left:228px;top:244px">1</span><span class="callout left" style="left:1110px;top:283px">2</span><span class="callout right" style="left:480px;top:635px">3</span>
+  </section>
+    </div>
+  </foreignObject>
+</svg>

@@ -1,0 +1,1 @@
+../../../flatten/08-ツール操作ガイド_LaunchPad_リスクとGo-live判定.md

@@ -1,0 +1,10 @@
+[project]
+name = "hosted-agent-deployment-sample"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "agent-framework-core==1.19.0",
+    "agent-framework-foundry==1.11.0",
+    "agent-framework-foundry-hosting==1.0.0b260918",
+    "azure-identity>=1.25.0",
+]

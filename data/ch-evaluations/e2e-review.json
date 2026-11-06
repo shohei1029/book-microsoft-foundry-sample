@@ -1,0 +1,82 @@
+{
+  "source_commit": "5b15031c6a9f492a9f9f611a464ed83e51c2a42b",
+  "evaluation_id": "eval_893b0a915a3042619da002e84135e334",
+  "run_id": "evalrun_a000842f0c23466c87f92321aca407f3",
+  "scope": "保存済みの応答・採点理由と、同じコミットのmarkdown/flatten内の資料を照合した。全100件の実行時検索コンテキストを監査した結果ではない。",
+  "raw_scores_changed": false,
+  "title_dimension": {
+    "id": "source_attribution_end_plain_titles",
+    "applicable": 34,
+    "not_applicable": 66,
+    "not_applicable_with_source_h1_string": 19,
+    "rubric_contract": "固定定義では見出しのタイトルも有効。URL、出典ラベル、末尾への配置は必須ではない。",
+    "limitation": "文書のH1文字列の存在だけでは、その文書が主張の根拠となることや回答全体の正確さを保証しない。",
+    "example": {
+      "case_id": "E003",
+      "score": 0.7,
+      "passed": false,
+      "dimension_score": null,
+      "dimension_applicable": false,
+      "observation": "回答冒頭の「### 経費精算」は固定定義で許容される表記だが、採点理由はタイトルがないと説明していた。末尾にないことを対象外の根拠にはできない。生の点数や対象外の値は変更しない。"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "E001",
+      "score": 0.75,
+      "passed": true,
+      "source_files": ["05-働き方と人事制度_経費と出張_経費精算.md"],
+      "observation": "本人、マネージャー、Financeの役割分担に加え、30日以内という期限にも資料の根拠がある。",
+      "review_note": "追加の30日という条件に対する減点を、期限の捏造が確認されたという意味で扱わない。期待動作は資料の要約であり、資料全文ではない。"
+    },
+    {
+      "case_id": "E004",
+      "score": 0.5833333333333334,
+      "passed": false,
+      "source_files": [
+        "05-働き方と人事制度_経費と出張_経費精算.md",
+        "08-ツール操作ガイド_SpendFlow_経費レポートを提出する.md"
+      ],
+      "observation": "紛失理由を申告し、証憑を自作しない説明と、支払日から30日以内という期限には根拠がある。",
+      "review_note": "明示的な出典タイトルの不足は回答側の課題として、追加の数値への採点理由とは分けて記録する。"
+    },
+    {
+      "case_id": "E008",
+      "score": 0.575,
+      "passed": false,
+      "source_files": ["05-働き方と人事制度_経費と出張_経費精算.md"],
+      "observation": "顧客会食の上限を必ず1万円とは断定せず、HelpPortのFinance／Legalへの確認を案内している。",
+      "review_note": "期待したExpenseカテゴリと「経費精算」の出典が欠けている。旧実装で見られた研修資料への誘導とは異なる。"
+    },
+    {
+      "case_id": "E025",
+      "score": 0.4772727272727273,
+      "passed": false,
+      "source_files": [
+        "04-社内システムとセキュリティ_アクセス申請_追加権限と本番アクセス.md",
+        "08-ツール操作ガイド_GateOne_本番アクセスと緊急昇格.md"
+      ],
+      "observation": "常時アクセス・多要素認証不要という誤った前提を訂正している。緊急昇格の最長2時間にも操作ガイドの根拠がある。",
+      "review_note": "申請時の関連チケットや目的の説明、出典タイトルの不足と、追加の数値の正否を分ける。"
+    },
+    {
+      "case_id": "E056",
+      "score": 0.4696969696969697,
+      "passed": false,
+      "source_files": ["05-働き方と人事制度_福利厚生.md"],
+      "observation": "1事業年度120,000円、マネージャーとの目的合意、SpendFlowでの精算、繰越不可は資料と一致する。",
+      "review_note": "要点の正しさとは別に、「福利厚生」を出典として明示していない点が不足している。"
+    },
+    {
+      "case_id": "E086",
+      "score": 0.41666666666666663,
+      "passed": false,
+      "source_files": [
+        "07-業務プロセス_開発_リリースと変更管理.md",
+        "08-ツール操作ガイド_Devagent-Runtime_段階的にデプロイする.md"
+      ],
+      "observation": "環境ごとに再ビルドせず同じ不変の成果物を昇格すると回答している。Canaryの5%・30分も操作ガイドに記載されている。",
+      "review_note": "低得点だけから成果物の扱いを誤回答と分類しない。一方、出典タイトルの不足は残る。"
+    }
+  ]
+}

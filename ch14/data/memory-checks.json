@@ -1,0 +1,82 @@
+{
+  "agent": "onboarding-agent-v3",
+  "agent_version": "2",
+  "source_commit": "5b15031c6a9f492a9f9f611a464ed83e51c2a42b",
+  "performed_after_e2e_run": "evalrun_a000842f0c23466c87f92321aca407f3",
+  "store": "onboarding-agent-v3-book-memory",
+  "scope": "同じ認証済み検証用利用者。利用者IDと全記憶は公開しない。",
+  "distinct_fresh_sessions_verified": true,
+  "memory_counts": {
+    "before_teaching": {
+      "count": 117,
+      "checked_at": "2026-11-05T03:56:08.469284+00:00"
+    },
+    "after_teaching": {
+      "count": 119,
+      "checked_at": "2026-11-05T04:17:05.224117+00:00"
+    },
+    "after_override": {
+      "count": 121,
+      "checked_at": "2026-11-05T08:53:33.299638+00:00"
+    }
+  },
+  "preference_persisted_after_teaching": true,
+  "cases": [
+    {
+      "case": "teach",
+      "prompt": "今後、社内手続きの案内は、短い3項目の箇条書きで説明してほしいです。これは説明形式の好みです。経費精算は誰が申請し、誰が確認しますか。",
+      "response": "- **申請者**：経費を支出した本人が、SpendFlowで申請します。\n- **確認者**：マネージャーが業務目的を、Financeが規程と証憑を確認します。\n- **注意点**：申請者本人は、自分の経費を承認できません。",
+      "status": "completed",
+      "response_id": "caresp_0e3ffd9ffe86b53000rZwA3AnH4yoLcqQ9P30933wAWKrkOG0e",
+      "agent_version": "2",
+      "trace_id": "be1d22741930f5aa717f340dbc1a71fa",
+      "final_model_span_id": "2a0cc26e06a067d6",
+      "final_model_input_characters": 2623,
+      "supplied_memory_count": 5,
+      "stored_three_bullet_preference_supplied": false,
+      "bullet_items": 3,
+      "blank_line_separated_blocks": 1
+    },
+    {
+      "case": "recall",
+      "prompt": "経費精算は、支払日から何日以内に申請する必要がありますか。年度末の注意点も教えてください。",
+      "response": "経費精算は、原則として**支払日から30日以内**にSpendFlowへ申請・提出します。\n\n年度末については、**3月分は通常の30日以内という期限だけでなく、事業年度末の締め案内を優先**してください。今回の資料では、3月分の具体的な締切日や、通常の期限と年度末締めのどちらが優先されるかは確認できません。\n\nそのため、3月分は早めに申請し、社内の年度末締め案内を確認してください。不明点はHelpPortの「Finance > Expense」からFinanceへ問い合わせてください。",
+      "status": "completed",
+      "response_id": "caresp_0f1e2b9fe171181e00UiP4fKQtah4xXBmYqoXVLGJ5zCzxIzZL",
+      "agent_version": "2",
+      "trace_id": "38bf267f5ae0dfd974e4982f391c3ea5",
+      "final_model_span_id": "0b9990f25d938a5b",
+      "final_model_input_characters": 2449,
+      "supplied_memory_count": 5,
+      "stored_three_bullet_preference_supplied": false,
+      "bullet_items": 0,
+      "blank_line_separated_blocks": 3
+    },
+    {
+      "case": "override",
+      "prompt": "今回は箇条書きを使わず、2つの段落で説明してください。経費精算は、支払日から何日以内に申請する必要がありますか。年度末の注意点も教えてください。",
+      "response": "経費精算は、支払日から30日以内に申請または提出する必要があります。SpendFlowでは、カード明細や個人立替を経費レポートにまとめ、ポリシーチェックを行ったうえで承認へ送ります（文書タイトル：「経費精算」「SpendFlowで経費レポートを提出する」）。\n\n年度末は、3月分の経費について通常の期限に加え、事業年度末の締め案内を優先してください。ただし、確認できた資料には、年度末の具体的な締切日、提出時刻、3月分以外の対象範囲は記載されていません。年度末の差戻し後に特別な扱いがあるかも資料では確認できないため、必要に応じてHelpPortのFinance窓口へ確認してください。",
+      "status": "completed",
+      "response_id": "caresp_0eb8adfabde25dbf00a4G5YN0CR0k3ghq6oU6LY8u2ckJSCBpb",
+      "agent_version": "2",
+      "trace_id": "69f8b58d7f2c1e23c255a7bb978812d6",
+      "final_model_span_id": "983b5b9b3523d0ea",
+      "final_model_input_characters": 2568,
+      "supplied_memory_count": 5,
+      "stored_three_bullet_preference_supplied": true,
+      "bullet_items": 0,
+      "blank_line_separated_blocks": 2
+    }
+  ],
+  "observations": [
+    "教示時の3項目は質問にも明示した形式であり、記憶からの再利用の成功とは扱わない。",
+    "次の質問では経費に関する記憶を取得したが、保存済みの形式の好みは最終モデルへ渡っていない。取得済みの好みをモデルが無視したとは断定できない。",
+    "今回の2段落という指示は、3項目の好みを含むメモリが供給された場合でも優先された。",
+    "recallの回答は年度末の案内を優先すると説明した後に、どちらが優先か確認できないという留保を加えた。「経費精算」の規程では年度末の締め案内が優先される。似た記憶が供給されていたことだけで原因を断定しない。"
+  ],
+  "limitations": [
+    "各条件1回の確認であり、追従率や安定性は測定していない。",
+    "別利用者とのメモリ分離、削除後の挙動、解決済み事項の扱いは未検証。",
+    "形式の確認と業務回答の事実性を分ける。公開したテキスト以外のreasoningパートは含めない。"
+  ]
+}

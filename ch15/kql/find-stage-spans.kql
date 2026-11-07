@@ -1,0 +1,10 @@
+dependencies
+| where timestamp >= ago(7d)
+| where cloud_RoleName == 'onboarding-agent'
+| where name in (
+    'invoke_agent rag_agent',
+    'invoke_agent review_agent',
+    'invoke_agent finalize_agent')
+| project timestamp, name, operation_Id, id,
+    operation_ParentId, duration, success
+| order by timestamp desc

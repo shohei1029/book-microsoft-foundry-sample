@@ -1,0 +1,52 @@
+{
+  "trace_id": "a17be7a907424e8c9ba4c8dafda3517c",
+  "agent": "onboarding-agent-v3",
+  "agent_version": "2",
+  "source_commit": "5b15031c6a9f492a9f9f611a464ed83e51c2a42b",
+  "scope": "同一の実行で実際に供給された資料と、実行時指示に対する手動確認。サービスのスコアは変更しない。",
+  "observations": [
+    {
+      "stage": "rag_agent",
+      "span_id": "8c38cbe815c3141b",
+      "finding": "本人が申請し、マネージャーが業務目的を、Financeが規程と証憑を確認する説明は、入力sourcesの「経費精算／承認」（ref_id 0）と一致する。",
+      "judge_limitation": "採点理由はsourcesの表現との完全一致を要求しているが、元の指示は根拠に基づく回答草案であり、逐語的な引用を要件にはしていない。"
+    },
+    {
+      "stage": "review_agent",
+      "span_id": "509bbdaf71cde5b7",
+      "finding": "needs_revision=false、revision_count=0の構造化JSONを返し、元の草案と同じ資料から役割分担を説明した。修正ループは発生していない。",
+      "judge_limitation": "修正不要の場合にも追加検索事項や詳細な逐語対応が不足していると減点している。修正が不要という判断と、指摘数の多さを混同しない。"
+    },
+    {
+      "stage": "finalize_agent",
+      "span_id": "02907f22f042e433",
+      "finding": "役割分担と資料タイトルは残ったが、「文書本文を直接確認できない」という追加の留保が付いた。最終整形だけにMemoryの取得内容が供給されていることをモデル入力で確認した。",
+      "judge_limitation": "前工程への忠実さ、メモリ由来の表現変更、業務上必要な留保かどうかを別々に確認する。合格という数値だけで採用を判断しない。"
+    }
+  ],
+  "payload_integrity": {
+    "source_table": "genAIContent",
+    "rag_input_characters": 106756,
+    "review_input_characters": 107539,
+    "dependency_attribute_limit_observed": 8192,
+    "all_full_payloads_parse_as_json": true,
+    "response_selection": "AgentResponse.textに対応するtextパートのみ。reasoningパートを採点対象や公開回答へ混ぜない。"
+  },
+  "separate_revision_trace": {
+    "trace_id": "004252cea13d3c7aef7943aa5df14fb1",
+    "rag_calls": 3,
+    "review_calls": 3,
+    "finalize_calls": 1,
+    "truncated_input_spans": [
+      {"stage": "rag_agent", "span_id": "e73a656de1e4f400", "utf8_bytes": 262144},
+      {"stage": "review_agent", "span_id": "10cc884bbbfe81d8", "utf8_bytes": 262144},
+      {"stage": "rag_agent", "span_id": "39049703db60463e", "utf8_bytes": 262142},
+      {"stage": "review_agent", "span_id": "74208533fe667906", "utf8_bytes": 262142}
+    ],
+    "source_table": "genAIContent",
+    "all_four_incomplete_inputs_rejected": true,
+    "ambiguous_stage_without_span_id_rejected": true,
+    "evaluations_submitted": 0,
+    "limitation": "本文保存用テーブルにも約256KiBで切れた入力が存在した。上の完全な1トレースと区別し、不完全な入力を採点しない。"
+  }
+}

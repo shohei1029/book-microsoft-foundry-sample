@@ -1,0 +1,379 @@
+{
+  "schema_version": 2,
+  "measurement_date_jst": "2026-11-03",
+  "scenario": "問い合わせ対応の回答を、結論・手順・参照資料・確認事項へ統一する。",
+  "project": "proj-foundry-book-test-001",
+  "agent": {
+    "name": "onboarding-search-agent",
+    "baseline_version": "5",
+    "promoted_version": "6",
+    "model": "gpt-5.4",
+    "copilot_harness": false,
+    "memory": false
+  },
+  "knowledge": {
+    "name": "optimizer-onboarding-knowledge",
+    "source": "optimizer-onboarding-files",
+    "source_kind": "file",
+    "markdown_documents": 74,
+    "source_commit": "5b15031c6a9f492a9f9f611a464ed83e51c2a42b",
+    "retrieval_reasoning_effort": "low",
+    "retrieval_model": "gpt-5.4-nano"
+  },
+  "dataset": {
+    "name": "book-onboarding-format-6",
+    "version": "1",
+    "cases": 6
+  },
+  "evaluator": {
+    "name": "book-onboarding-format-rubric",
+    "version": "1",
+    "pass_threshold": 0.5,
+    "model": "gpt-5.4-nano"
+  },
+  "input_sha256": {
+    "optimizer-questions.jsonl": "8140dbffd1d4cc72fb28c522d4bdc99df87d3c6fd7534b02698a29354b8e0dc6",
+    "holdout-questions.jsonl": "1cbd5e0faac0439ff1e35c17e36637c23387a852c726618a40f745caae4c4708",
+    "rubric-dimensions.json": "96059152fa090c2a3a900539be41d0abfd9e22ec07a3f7a18d41a1a761283e89",
+    "format-evaluator.py": "fee8bd8fdfcbb96b06744ca3e89bd5cd5ee5fb50fc7ffbb73e1581c3dda62091"
+  },
+  "experiments": [
+    {
+      "kind": "instructions",
+      "job_id": "opt_7b8c79655ce0491a8ae38ce0ebd5931d",
+      "status": "succeeded",
+      "baseline_version": "5",
+      "optimization_model": "gpt-5.4",
+      "evaluation_model": "gpt-5.4-nano",
+      "target_attributes": [
+        "instructions"
+      ],
+      "model_search_space": [],
+      "duration_ms": 508024,
+      "pre_run_estimate_usd": {
+        "minimum": 0.03,
+        "estimated": 0.19,
+        "modeled_maximum": 0.64
+      },
+      "post_run_displayed_partial_estimate_usd": 1.5,
+      "cost_note": "Displayed model-usage estimate only; not a final charge. Unpriced models, search, setup, preparatory experiments, and independent checks are excluded.",
+      "candidates": [
+        {
+          "candidate_id": "cand_opt_7b8c79655ce0491a8ae38ce0ebd5931d_0000",
+          "name": "baseline",
+          "draft_version": "draft-1793681042806",
+          "aggregate_score": 0.25694500000000003,
+          "avg_tokens": 17853.333333333332,
+          "avg_latency_ms": 9718,
+          "evaluator_scores": {
+            "book-onboarding-format-rubric": 0.256945
+          },
+          "linked_eval_id": "eval_08f1967347ce480bb6349cc7ce949778",
+          "linked_eval_run_id": "evalrun_0414d27d83cb49cbb85fbb3a8607a57e"
+        },
+        {
+          "candidate_id": "cand_opt_7b8c79655ce0491a8ae38ce0ebd5931d_0001",
+          "name": "candidate_1",
+          "draft_version": "draft-1793681223303",
+          "aggregate_score": 0.3796283333333333,
+          "avg_tokens": 19622.666666666668,
+          "avg_latency_ms": 13247,
+          "evaluator_scores": {
+            "book-onboarding-format-rubric": 0.527777
+          },
+          "linked_eval_id": "eval_08f1967347ce480bb6349cc7ce949778",
+          "linked_eval_run_id": "evalrun_6649399dcc1a4eae83b4f392a48b49cc"
+        },
+        {
+          "candidate_id": "cand_opt_7b8c79655ce0491a8ae38ce0ebd5931d_0002",
+          "name": "candidate_2",
+          "draft_version": "draft-1793681435729",
+          "aggregate_score": 0.6504633333333333,
+          "avg_tokens": 21266.666666666668,
+          "avg_latency_ms": 10644,
+          "evaluator_scores": {
+            "book-onboarding-format-rubric": 0.578703
+          },
+          "linked_eval_id": "eval_08f1967347ce480bb6349cc7ce949778",
+          "linked_eval_run_id": "evalrun_e86583e10e77438fabb290eeaaa69666"
+        }
+      ],
+      "internal_evaluation_runs": [
+        {
+          "id": "evalrun_e86583e10e77438fabb290eeaaa69666",
+          "name": "candidate_2",
+          "status": "completed",
+          "total": 3,
+          "passed": 2,
+          "failed": 1,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_6b346bce15fe4c6485381e07280bd400",
+          "name": "minibatch_4",
+          "status": "completed",
+          "total": 3,
+          "passed": 3,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_52edd617089e4870ba2997bc455e0ed7",
+          "name": "minibatch_3",
+          "status": "completed",
+          "total": 3,
+          "passed": 3,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_6649399dcc1a4eae83b4f392a48b49cc",
+          "name": "candidate_1",
+          "status": "completed",
+          "total": 3,
+          "passed": 2,
+          "failed": 1,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_60ff25bebcfe4a438931856448576bc1",
+          "name": "minibatch_2",
+          "status": "completed",
+          "total": 3,
+          "passed": 1,
+          "failed": 0,
+          "errored": 2,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_19f82dc812dc4717a8c0f0cb4fd51ddb",
+          "name": "minibatch_1",
+          "status": "completed",
+          "total": 3,
+          "passed": 0,
+          "failed": 3,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_0414d27d83cb49cbb85fbb3a8607a57e",
+          "name": "baseline",
+          "status": "completed",
+          "total": 6,
+          "passed": 0,
+          "failed": 6,
+          "errored": 0,
+          "skipped": 0
+        }
+      ],
+      "evaluated_item_count": 24,
+      "errored_item_count": 2,
+      "token_usage": [
+        {
+          "stage": "agent",
+          "model": "gpt-5.4",
+          "input_tokens": 449870,
+          "output_tokens": 14436,
+          "total_tokens": 464306,
+          "cached_tokens": 0,
+          "cache_creation_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        {
+          "stage": "evaluation",
+          "model": "gpt-5.4-nano",
+          "input_tokens": 1466801,
+          "output_tokens": 11963,
+          "total_tokens": 1478764,
+          "cached_tokens": 35328,
+          "cache_creation_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        {
+          "stage": "optimization",
+          "model": "gpt-5.4",
+          "input_tokens": 30205,
+          "output_tokens": 5767,
+          "total_tokens": 35972,
+          "cached_tokens": 0,
+          "cache_creation_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      ],
+      "best_candidate_id": "cand_opt_7b8c79655ce0491a8ae38ce0ebd5931d_0002",
+      "decision": "Promoted candidate_2 after exact-format and source checks on separate questions.",
+      "promotion_performed": true,
+      "error_note": "Two rubric content-policy refusals occurred in candidate_1 minibatch_2. The baseline and candidate_2 linked runs had zero errors. Candidate_1 was not selected; independent before-and-after checks are recorded separately.",
+      "promoted_version": "6",
+      "instruction_characters": {
+        "baseline": 167,
+        "candidate": 5207
+      },
+      "instruction_sha256": {
+        "baseline": "b374d2ae55e992e0912769efcdd51070cd14ebe32340d8ec1f7f604f4ca7ab51",
+        "candidate": "0b5832ab6268d5478d39bfed56ce5ae02afd431c822e5d3207fd31adc938b819"
+      }
+    },
+    {
+      "kind": "models",
+      "job_id": "opt_acddb7c4fc024a84909c0aa6149b2344",
+      "status": "succeeded",
+      "baseline_version": "6",
+      "optimization_model": "gpt-5.4",
+      "evaluation_model": "gpt-5.4-nano",
+      "target_attributes": [
+        "model"
+      ],
+      "model_search_space": [
+        "gpt-4.1-mini"
+      ],
+      "duration_ms": 288333,
+      "pre_run_estimate_usd": {
+        "minimum": 0.02,
+        "estimated": 0.1,
+        "modeled_maximum": 0.33
+      },
+      "post_run_displayed_partial_estimate_usd": 0.62,
+      "cost_note": "Displayed model-usage estimate only; not a final charge. Unpriced models, search, setup, preparatory experiments, and independent checks are excluded.",
+      "candidates": [
+        {
+          "candidate_id": "cand_opt_acddb7c4fc024a84909c0aa6149b2344_0000",
+          "name": "baseline",
+          "draft_version": "draft-1793699999744",
+          "aggregate_score": 0.6157383333333333,
+          "avg_tokens": 21450.5,
+          "avg_latency_ms": 12849,
+          "evaluator_scores": {
+            "book-onboarding-format-rubric": 0.615738
+          },
+          "linked_eval_id": "eval_5d2c3d7e89e949a2bc723c59d38b370f",
+          "linked_eval_run_id": "evalrun_5dc7a8ffa47e4e22b5806f75b7ad52fb"
+        },
+        {
+          "candidate_id": "cand_opt_acddb7c4fc024a84909c0aa6149b2344_0001",
+          "name": "candidate_1",
+          "draft_version": "draft-1793700166912",
+          "aggregate_score": 0.5949066666666667,
+          "avg_tokens": 20774.333333333332,
+          "avg_latency_ms": 11178,
+          "evaluator_scores": {
+            "book-onboarding-format-rubric": 0.61574
+          },
+          "linked_eval_id": "eval_5d2c3d7e89e949a2bc723c59d38b370f",
+          "linked_eval_run_id": "evalrun_e8933f5d09b448efbd37f49c14a134da"
+        }
+      ],
+      "internal_evaluation_runs": [
+        {
+          "id": "evalrun_e8933f5d09b448efbd37f49c14a134da",
+          "name": "candidate_1",
+          "status": "completed",
+          "total": 3,
+          "passed": 3,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_bc84e97feaff4e19ab8852bc3d30388c",
+          "name": "minibatch_2",
+          "status": "completed",
+          "total": 3,
+          "passed": 2,
+          "failed": 1,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_ecc88bf8b7f44ad1adbb828413e47989",
+          "name": "minibatch_1",
+          "status": "completed",
+          "total": 3,
+          "passed": 1,
+          "failed": 2,
+          "errored": 0,
+          "skipped": 0
+        },
+        {
+          "id": "evalrun_5dc7a8ffa47e4e22b5806f75b7ad52fb",
+          "name": "baseline",
+          "status": "completed",
+          "total": 6,
+          "passed": 6,
+          "failed": 0,
+          "errored": 0,
+          "skipped": 0
+        }
+      ],
+      "evaluated_item_count": 15,
+      "errored_item_count": 0,
+      "token_usage": [
+        {
+          "stage": "agent",
+          "model": "gpt-5.4",
+          "input_tokens": 182076,
+          "output_tokens": 7002,
+          "total_tokens": 189078,
+          "cached_tokens": 0,
+          "cache_creation_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        {
+          "stage": "evaluation",
+          "model": "gpt-5.4-nano",
+          "input_tokens": 942001,
+          "output_tokens": 9013,
+          "total_tokens": 951014,
+          "cached_tokens": 16896,
+          "cache_creation_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        {
+          "stage": "agent",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 121792,
+          "output_tokens": 2854,
+          "total_tokens": 124646,
+          "cached_tokens": 0,
+          "cache_creation_tokens": 0,
+          "reasoning_tokens": 0
+        }
+      ],
+      "best_candidate_id": "cand_opt_acddb7c4fc024a84909c0aa6149b2344_0000",
+      "decision": "Comparison only; the verified gpt-5.4 instruction-optimized version 6 remains active.",
+      "promotion_performed": false,
+      "model_specific_settings": {
+        "baseline": {
+          "model": "gpt-5.4",
+          "reasoning": {
+            "effort": "low"
+          }
+        },
+        "candidate": {
+          "model": "gpt-4.1-mini",
+          "reasoning": "not applicable"
+        },
+        "instructions_and_tools_unchanged": true
+      }
+    }
+  ],
+  "additional_validation_runs": [
+    {
+      "job_id": "opt_f58a5aeb9b9c4859976b3ab513e88c12",
+      "evaluation_model": "gpt-4.1-mini",
+      "adopted": false,
+      "reason": "A high rubric score did not correspond to exact-format compliance in the actual answers."
+    },
+    {
+      "job_id": "opt_c779da46364f49d5a61e3066c515e2cd",
+      "evaluation_model": "gpt-4.1-mini",
+      "additional_evaluator": "book-onboarding-format-contract:1",
+      "adopted": false,
+      "reason": "The deterministic evaluator detected noncompliant answer formatting; neither generated candidate was adopted."
+    }
+  ]
+}

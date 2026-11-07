@@ -1,0 +1,36 @@
+category,item,value,evidence,status
+asset,agent_name,onboarding-agent-v3,2026-11-05; Foundry Control Plane asset inventory,verified
+asset,agent_version,2,2026-11-05; Foundry deployment definition and asset inventory,verified
+asset,source_commit,5b15031c6a9f492a9f9f611a464ed83e51c2a42b,data/ch-evaluations/source-version.json; unchanged application modules and locked dependencies,verified
+asset,project_resource_id,/subscriptions/88bd4311-8dfa-4dbc-a238-07a6978c0c2e/resourceGroups/rg-fabric-book-test-001/providers/Microsoft.CognitiveServices/accounts/mif-foundry-book-test-001/projects/proj-foundry-book-test-001,2026-11-05; Foundry project and Azure resource details,verified
+asset,subscription_id,88bd4311-8dfa-4dbc-a238-07a6978c0c2e,2026-11-05; approved test project,verified
+asset,run_state,inventory=Unknown; details=Running,2026-11-05; agent-inventory.png and agent-details.png; preserve both observations,verified
+asset,active_version,最新 (Version 2),2026-11-05; Foundry agent details,verified
+asset,endpoint_protocol,Responses 2.0.0,2026-11-05; deployment definition and successful authenticated invocation,verified
+identity,agent_identity_object_id,693cf217-70f8-466f-803a-097c706f7dac,2026-11-05; runtime definition; Foundry details; Agent 365 details,verified
+identity,agent_blueprint_client_id,0b5fa358-955d-4a6a-a430-4d01c61eebaa,2026-11-05; deployment blueprint configuration,verified
+identity,agent_blueprint_object_id,834328e0-e3e8-4228-95f4-6b00a45df68d,2026-11-05; deployment blueprint configuration,verified
+identity,project_managed_identity_object_id,df4d7dc3-e9a6-4e6f-a2a0-6fede5428e26,2026-11-05; Azure Portal system-assigned identity; differs from agent identity,verified
+identity,runtime_role_assignments,Search Index Data Reader @ ais-foundry-book-test-001; Foundry User @ project; Cognitive Services OpenAI User @ project,2026-11-05; scoped assignments for the v3 runtime identity; no governance-step changes,verified
+configuration,generation_model,gpt-5.6-luna; 2026-07-09; GlobalStandard; 250K TPM,2026-11-05; model deployment and v3 version 2 environment,verified
+configuration,knowledge_base,onboarding-v3-knowledge; onboarding-v3-source; onboarding-v3-index,2026-11-05; Search definitions; 324 chunks from 74 source documents verified against pinned source,verified
+configuration,max_revisions,2,2026-11-05; v3 version 2; at most 3 RAG and 3 review calls per request,verified
+configuration,memory_store,onboarding-agent-v3-book-memory,2026-11-05; isolated store and runtime configuration,verified
+configuration,memory_scope_policy,platform-authenticated user_id; finalizer-only retrieval; persist original question and final answer,2026-11-05; source and authenticated request; caller identifier intentionally omitted,verified
+monitoring,application_insights_resource,proj-foundry-book-test-001-appinsights-2325,2026-11-05; Portal monitoring connection and matching live trace; AppId 6ada589d-a9e6-496a-ab14-e3afc1905a22,verified
+monitoring,genai_content_retention,90 days; workspace default 30 days,2026-11-05; ARM AppGenAIContent table and Log Analytics workspace settings; separate retention values,verified
+monitoring,evaluation_run,evalrun_a000842f0c23466c87f92321aca407f3,2026-11-05; eval_893b0a915a3042619da002e84135e334; target onboarding-agent-v3 version 2; results are not a deployment approval,verified
+monitoring,internal_evaluation_trace,a17be7a907424e8c9ba4c8dafda3517c,data/ch-evaluations/internal-results.json; full genAIContent payloads joined to model spans,verified
+protection,agent365_registry_status,available; owner present; registry version 1.0,2026-11-05; Agent 365 registry; registry version is distinct from Foundry deployment version 2,verified
+protection,agent365_sharing_status,not shared,2026-11-05; Agent 365 users / shared with; no sharing operation performed,verified
+protection,agent365_identity_match,true,2026-11-05; Entra Agent ID matches 693cf217-70f8-466f-803a-097c706f7dac in Foundry and Agent 365,verified
+protection,defender_posture,2 Low recommendations: use Private Link; restrict network access,2026-11-05; Control Plane security posture for mif-foundry-book-test-001; not an agent-protection enforcement test,verified
+protection,purview_connection,disabled,2026-11-05; Control Plane data security and governance; switch unchecked; no policy change,verified
+protection,policy_enforcement_test,not performed,Agent 365 links and Application Insights ingestion do not prove DLP blocking or complete activity coverage,unverified
+ownership,technical_owner,,,to_decide
+ownership,business_sponsor,,,to_decide
+ownership,data_owner,,,to_decide
+operation,allowed_use,,,to_decide
+operation,change_approval,,,to_decide
+operation,stop_and_resume_authority,,,to_decide
+operation,data_retention_and_deletion,,,to_decide

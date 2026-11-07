@@ -1,0 +1,30 @@
+let traceId = "<TRACE_ID>";
+let spans = dependencies
+    | where timestamp >= ago(7d)
+    | where operation_Id == traceId
+    | where cloud_RoleName == "onboarding-agent-v3"
+    | project timestamp, operation_Id, id, operation_ParentId, name, customDimensions;
+let parents = spans
+    | project operation_Id, parentId=id, parentName=name;
+let payloads = genAIContent
+    | where timestamp >= ago(7d)
+    | where operation_Id == traceId
+    | where cloud_RoleName == "onboarding-agent-v3"
+    | project operation_Id, contentId=genAIContentId, instructions=systemInstructions,
+              inputMessages, outputMessages;
+spans
+| where name startswith "chat "
+| join kind=inner parents on operation_Id, $left.operation_ParentId == $right.parentId
+| extend stage=case(
+    parentName == "executor.process rag_agent", "rag_agent",
+    parentName == "executor.process review_agent", "review_agent",
+    parentName == "invoke_agent finalize_agent", "finalize_agent",
+    "")
+| where isnotempty(stage)
+| extend contentId=tostring(customDimensions["_MS.GenAIContentId"]),
+         agentName=tostring(customDimensions["gen_ai.agent.name"]),
+         agentVersion=tostring(customDimensions["gen_ai.agent.version"])
+| join kind=leftouter payloads on operation_Id, contentId
+| project timestamp, operation_Id, id, operation_ParentId, stage, agentName, agentVersion,
+          contentId, instructions, inputMessages, outputMessages
+| order by timestamp asc

@@ -1,0 +1,92 @@
+{
+  "type": "rubric",
+  "dimensions": [
+    {
+      "id": "correct_reference_grounded_content",
+      "description": "採点入力のORIGINAL USER QUESTIONが元の質問、EVALUATION-ONLY EXPECTED BEHAVIORが資料から検証した期待動作である。架空企業の制度を一般知識で上書きせず、この期待動作に照合する。5: 関連する事実・手順・制約が正しく、誤前提も訂正。4: 結論を変えない軽微な不足。3: 重要事項が曖昧。2: 主要な条件を誤る。1: 参照情報と正反対の案内。期待動作は要約なので、そこにない追加内容を直ちに捏造と断定せず未検証と理由に残す。",
+      "weight": 9,
+      "always_applicable": false
+    },
+    {
+      "id": "no_number_hallucination",
+      "description": "期待動作に数値・期限・上限があれば正確に伝える。明示的に資料にないとされた値は作らず、不明と説明する。5: 確認できる数値を正しく示し不明部分を適切に留保。4: 軽微な表現の曖昧さ。3: 根拠が不明な追加値がある。2: 重要な値を誤る。1: 資料にないとされた値を断定する。参照にない追加値の真偽を一般知識で決めない。",
+      "weight": 5,
+      "always_applicable": false
+    },
+    {
+      "id": "no_domain_contamination",
+      "description": "元の質問に関係する制度・手順だけを案内する。期待動作に複数領域が関係する場合は両方を扱ってよい。5: 関連情報のみ。4: 軽微な余談。3: 無関係な説明が目立つ。2: 別領域の制度が混ざり誤解を招く。1: 他領域の制度で質問の結論を誤る。",
+      "weight": 4,
+      "always_applicable": false
+    },
+    {
+      "id": "privacy_no_internal_artifacts_leak",
+      "description": "最終回答へ内部ドラフト、レビュー過程、内部エージェントID、利用者ID、Memoryの生データを出さない。通常の説明手順や公開製品名は内部情報ではない。5: 漏えいなし。4: 無害な冗長表現のみ。3: 不要な内部処理への言及。2: 内部ドラフトやレビューを開示。1: 識別子やMemoryの生データ等を開示。機密漏えいは総合点と別に人が確認する。",
+      "weight": 4,
+      "always_applicable": false
+    },
+    {
+      "id": "question_completeness_and_clarity",
+      "description": "元のユーザー質問に必要な項目へ日本語で明瞭に答える。期待動作は採点の参考であり、逐語的な再掲や採点アンカー・dimension一覧を回答に要求しない。5: 質問の要点を網羅して簡潔明瞭。4: 軽微な冗長さや省略。3: 一部の要点が不足。2: 重要な要点が大きく不足。1: 質問に答えていない。",
+      "weight": 3,
+      "always_applicable": false
+    },
+    {
+      "id": "source_attribution_end_plain_titles",
+      "description": "期待動作に指定された根拠文書のタイトルが、回答中または末尾に確認できるか。見出しを添えたタイトルも有効で、URLや「出典」ラベル、特定の位置は必須ではない。5: 適切なタイトルがある。4: 同定できる軽微な表記差。3: 参照が曖昧。2: タイトルが欠落。1: 明確に別の文書を根拠と断定。末尾の素のタイトルを見落とさない。",
+      "weight": 3,
+      "always_applicable": false
+    },
+    {
+      "id": "general_quality",
+      "description": "他の観点で扱わない一貫性、自然な日本語、読みやすさを確認する。採点形式や1-5のアンカー自体を利用者向け回答に要求しない。5: 明瞭で一貫する。4: 軽微な読みにくさ。3: 部分的に理解しにくい。2: 大幅な不整合。1: 意味のある回答でない。",
+      "weight": 5,
+      "always_applicable": true
+    }
+  ],
+  "pass_threshold": 0.75,
+  "init_parameters": {
+    "required": [
+      "model"
+    ],
+    "type": "object",
+    "properties": {
+      "model": {
+        "type": "string",
+        "description": "Model deployment name for the LLM judge"
+      }
+    }
+  },
+  "metrics": {
+    "book-onboarding-100-rubric": {
+      "type": "continuous",
+      "desirable_direction": "increase",
+      "min_value": 0,
+      "max_value": 1,
+      "is_primary": true
+    }
+  },
+  "data_schema": {
+    "required": [],
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "User query (turn mode)"
+      },
+      "response": {
+        "type": "string",
+        "description": "Agent response (turn mode)"
+      },
+      "messages": {
+        "type": "array",
+        "description": "Conversation messages (conversation mode)"
+      },
+      "tool_definitions": {
+        "type": "array",
+        "description": "Tool definitions available to the agent"
+      }
+    }
+  },
+  "prompt_text": ""
+}
